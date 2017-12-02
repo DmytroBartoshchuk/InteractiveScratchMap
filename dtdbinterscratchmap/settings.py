@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'interscratchmap',
+    'interscratchmap.apps.InterscratchmapConfig',
 ]
 
 MIDDLEWARE = [
