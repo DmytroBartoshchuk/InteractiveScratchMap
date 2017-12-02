@@ -1,0 +1,14 @@
+{% extends "layouts/mainlayout.html" %}
+{% block content %}
+
+<h2>Write message to us</h2>
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    {{value|linebreaks}}
+    <input type="submit" value="Submit"/>
+</form>
+
+
+{% endblock %}

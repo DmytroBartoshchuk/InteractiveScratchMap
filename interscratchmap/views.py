@@ -2,6 +2,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from .forms import NameForm
+from django.http import HttpResponseRedirect
 
 
 # to uncomment annotation when signup will done
@@ -27,3 +29,19 @@ def signup(request):
 
 def login(request):
     return render(request, 'authorization/login.html')
+
+
+def contact_form(request):
+
+    if request.method == 'POST':
+
+        form = NameForm(request.POST)
+
+        if form.is_valid():
+
+            return HttpResponseRedirect('/index/')
+
+    else:
+        form = NameForm()
+
+    return render(request, 'other/contact_form.html', {'form': form})
